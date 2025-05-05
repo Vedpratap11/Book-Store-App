@@ -19,12 +19,12 @@ const BookCard = ({book}) => {
         <div>
           <a href="/">
             <h3 className="text-xl font-semibold hover:text-blue-600 mb-3">
-              Book Title
+              {book.title}
             </h3>
           </a>
-          <p className="text-gray-600 mb-5">Book Description</p>
+          <p className="text-gray-600 mb-5">{book.description}</p>
           <p className="font-medium mb-5">
-            $80 <span className="line-through font-normal ml-2">$100</span>
+            ${book.newPrice} <span className="line-through font-normal ml-2">${book.oldPrice}</span>
           </p>
           <button className="btn-primary px-6 space-x-1 flex items-center gap-1 ">
             <FiShoppingCart className="" />
