@@ -33,7 +33,7 @@ const BookCard = ({ book }) => {
               ${book.oldPrice}
             </span>
           </p>
-          <button className="btn-primary px-6 space-x-1 flex items-center gap-1 ">
+          <button className="bg-amber-300 text-black hover:transition-colors hover:bg-blue-950 hover:text-white px-7 py-1 rounded-md  flex items-center gap-1 ">
             <FiShoppingCart className="" />
             <span>Add to Cart</span>
           </button>

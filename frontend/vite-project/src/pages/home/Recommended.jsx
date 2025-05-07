@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 import BookCard from "../book/BookCard";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -6,19 +6,21 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-import 'swiper/css/navigation';
+import "swiper/css/navigation";
 
 // import required modules
-import {Pagination, Navigation } from "swiper/modules";
+import { Pagination, Navigation } from "swiper/modules";
 
 const Recommended = () => {
-      const [books, setBooks] = useState([]);
+  const [books, setBooks] = useState([]);
 
-      useEffect(()=>{
-        fetch("books.json").then((res)=>res.json()).then((data)=> setBooks(data))
-      },[])
+  useEffect(() => {
+    fetch("books.json")
+      .then((res) => res.json())
+      .then((data) => setBooks(data));
+  }, []);
   return (
-    <div className='text-white px-36 py-10'>
+    <div className="text-white px-36 py-16">
       <h2 className="text-3xl font-semibold mb-6">Recommended for you</h2>
       <Swiper
         slidesPerView={1}
@@ -42,18 +44,18 @@ const Recommended = () => {
             spaceBetween: 50,
           },
         }}
-        modules={[Pagination , Navigation]}
+        modules={[Pagination, Navigation]}
         className="mySwiper"
       >
         {books.length > 0 &&
-          books.slice(8,18).map((book, index) => (
+          books.slice(8, 18).map((book, index) => (
             <SwiperSlide>
               <BookCard key={index} book={book} />
             </SwiperSlide>
           ))}
       </Swiper>
     </div>
-  )
-}
+  );
+};
 
-export default Recommended
+export default Recommended;

@@ -40,7 +40,7 @@ const TopSellers = () => {
 
   // console.log(books);
   return (
-    <div className="py-10 text-white px-36">
+    <div className="py-16 text-white px-36">
       <h2 className="text-3xl font-semibold mb-6">Top Sellers</h2>
       <div className="mb-8 flex items-center">
         <select
