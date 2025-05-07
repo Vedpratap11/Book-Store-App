@@ -2,7 +2,7 @@ import React from "react";
 import { FiShoppingCart } from "react-icons/fi";
 import { getImgUrl } from "../../utills/getImgUrl";
 
-const BookCard = ({book}) => {
+const BookCard = ({ book }) => {
   return (
     <div className=" rounded-lg transition-shadow duration-300">
       <div className="flex flex-col sm:flex-row sm:items-center sm:h-72  sm:justify-center gap-4">
@@ -22,9 +22,16 @@ const BookCard = ({book}) => {
               {book.title}
             </h3>
           </a>
-          <p className="text-gray-600 mb-5">{book.description}</p>
+          <p className="text-gray-600 mb-5">
+            {book.description.length > 80
+              ? `${book.description.slice(0, 80)}...`
+              : book.description}
+          </p>
           <p className="font-medium mb-5">
-            ${book.newPrice} <span className="line-through font-normal ml-2">${book.oldPrice}</span>
+            ${book.newPrice}{" "}
+            <span className="line-through font-normal ml-2">
+              ${book.oldPrice}
+            </span>
           </p>
           <button className="btn-primary px-6 space-x-1 flex items-center gap-1 ">
             <FiShoppingCart className="" />

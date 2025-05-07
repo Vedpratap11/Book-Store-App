@@ -1,9 +1,19 @@
 import React, { useEffect, useState } from "react";
 import BookCard from "../book/BookCard";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import 'swiper/css/navigation';
+
+// import required modules
+import {Pagination, Navigation } from "swiper/modules";
+
 const TopSellers = () => {
   const [books, setBooks] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("Choose a genre");
 
   const categories = [
     "Choose a genre",
@@ -36,7 +46,7 @@ const TopSellers = () => {
         <select
           name="category"
           onChange={(e) => setSelectedCategory(e.target.value)}
-          id=""
+          id="category"
           className="border border-black bg-amber-300 text-black rounded-md px-4 py-1 focus:outline-none"
         >
           {categories.map((category, index) => {
@@ -48,9 +58,38 @@ const TopSellers = () => {
           })}
         </select>
       </div>
-      {filteredBooks.map((book, index) => (
-        <BookCard key={index} book={book}/>
-      ))}
+      <Swiper
+        slidesPerView={1}
+        spaceBetween={30}
+        navigation={true}
+        breakpoints={{
+          640: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 40,
+          },
+          1024: {
+            slidesPerView: 2,
+            spaceBetween: 50,
+          },
+          1180: {
+            slidesPerView: 3,
+            spaceBetween: 50,
+          },
+        }}
+        modules={[Pagination , Navigation]}
+        className="mySwiper"
+      >
+        {filteredBooks.length > 0 &&
+          filteredBooks.map((book, index) => (
+            <SwiperSlide>
+              <BookCard key={index} book={book} />
+            </SwiperSlide>
+          ))}
+      </Swiper>
     </div>
   );
 };
