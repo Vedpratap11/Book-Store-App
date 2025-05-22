@@ -29,9 +29,9 @@ function Footer() {
           <input
             type="email"
             placeholder="Enter your email"
-            className="w-full px-4 py-2 rounded-l-md text-white"
+            className="w-full px-4 py-2 rounded-l-md text-black bg-white"
           />
-          <button className="bg-primary px-6 py-2 rounded-r-md hover:bg-primary-dark">
+          <button className="bg-amber-400 px-6 py-2 rounded-r-md hover:bg-primary-dark">
             Subscribe
           </button>
         </div>
